@@ -65,12 +65,17 @@ number_titles = ['Latitude Days: ', 'Latitude Minutes: ', 'Latitude Seconds: ', 
 
 # Setup input boxes with labels
 for i in range(6):
-    tk.Label(root, text=number_titles[i]).grid(row=i, column=0, padx=10, pady=5)
-    tk.Entry(root, textvariable=numbers[i]).grid(row=i, column=1, padx=10, pady=5)
+    tk.Label(root, text=number_titles[i]).grid(row=i+2, column=0, padx=10, pady=5)
+    tk.Entry(root, textvariable=numbers[i]).grid(row=i+2, column=1, padx=10, pady=5)
 
-# Create output label    
+# Create output label and info
 result_label = tk.Label(root, text="Please enter values above.")
-result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=20)  
+result_label.grid(row=8, column=0, columnspan=2, padx=10, pady=5)
+
+info_label1 = tk.Label(root,text="To use, ensure numbers are in each of the below boxes.")
+info_label1.grid(row=0,column=0, columnspan=2, padx=10, pady=5)
+info_label2 = tk.Label(root,text="Please enter negative numbers for coordinates south and west")
+info_label2.grid(row=1,column=0, columnspan=2, padx=10, pady=5)
 
 # This runs the update_result function whenever a value is changed in the input box, giving you real time info    
 for num in numbers:
