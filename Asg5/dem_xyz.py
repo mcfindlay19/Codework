@@ -30,12 +30,14 @@
 # ====================================================
 
 def gather_important_numbers(input_file):
-    max_east = 0
-    min_east = 0
-    max_north = 0
-    min_north = 0
-    max_elevation = 0
-    min_elevation = 0
+    # Initilize values to infinity or negative infinity
+    max_east = float('-inf')
+    min_east = float('inf')
+    max_north = float('-inf')
+    min_north = float('inf')
+    max_elevation = float('-inf')
+    min_elevation = float('inf')
+    # Initilize other important values
     total_elevation = 0
     utm_points = 0
     
@@ -51,15 +53,31 @@ def gather_important_numbers(input_file):
         total_elevation += float(list_line[2])
         utm_points += 1
     
-    return max_east, min_east, max_north, min_north, max_elevation, min_elevation, total_elevation/utm_points, utm_points
+    return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, total_elevation/utm_points
         
+def print_output(utm_points):
+    
+    pass
 
 file_name = input("Please input the name of the file you wish to open: ")
-
-
+text_name = file_name.split('.')[0] + '.txt'
+print(text_name)
 
 with open(file_name, 'r') as xyz_file:
-    max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation, utm_points = gather_important_numbers(xyz_file)
+    utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation = gather_important_numbers(xyz_file)
     
+width = max_east - min_east
+height = max_north - min_north
+
+with open(text_name, 'w') as txt_file:
     
-    
+    txt_file.write(utm_points)
+    txt_file.write(max_east)
+    txt_file.write(min_east)
+    txt_file.write(width)
+    txt_file.write(max_north)
+    txt_file.write(min_north)
+    txt_file.write(height)
+    txt_file.write(max_elevation)
+    txt_file.write(min_elevation)
+    txt_file.write(average_elevation)
