@@ -1,0 +1,10 @@
+There are 0 UTM points.
+The maximum easting is -inf meters east.
+The minimum easting is inf meters east.
+The width of the area is -inf meters.
+The maximum northing is -inf meters north.
+The minimum northing is inf meters north.
+The height of the area is -inf meters.
+The max elevation is -inf meters.
+The minimum elevation is inf meters.
+The average elevation is 0 meters.

@@ -24,6 +24,7 @@
 #    1.2.1 - Added writing output to the screen
 #    1.3.0 - Added try block for opening file. Added docstrings
 #    1.3.1 - Added more error handling, sepcifically for data inside file
+#    1.3.2 - Fixed spelling mistakes. Initailized average_elevation. Fixed white space
     
 # Date:
 #    2004-10-10
@@ -34,6 +35,7 @@
 # ====================================================
 
 def gather_important_numbers(input_file):
+    
     """Gathers important metadata from a .xyz file.
 
     Args:
@@ -43,6 +45,7 @@ def gather_important_numbers(input_file):
         A tuple containing the number of UTM points, maximum and minimum easting, maximum and minimum northing,
         maximum and minimum elevation, and the average elevation.
     """
+    
     # Initialize values to infinity or negative infinity
     max_east = float('-inf')
     min_east = float('inf')
@@ -50,11 +53,11 @@ def gather_important_numbers(input_file):
     min_north = float('inf')
     max_elevation = float('-inf')
     min_elevation = float('inf')
-
     
     # Initialize other important values
     elevation_sum = 0
     utm_points = 0
+    average_elevation = 0
     
     # For every line inside the file, split the line into individual values
     for line in input_file.readlines():
@@ -88,13 +91,13 @@ def gather_important_numbers(input_file):
         #Keep track of how many points there are
         utm_points += 1
 
-    # Calculate average elevation after the loop to avoid repeated calculation
-    average_elevation = round(elevation_sum / utm_points, 4) if utm_points > 0 else 0
+    # Calculate average elevation and check to see if utm_points is greater then zero toa void DivisionByZero error
+    average_elevation = round(elevation_sum / utm_points, 4) if utm_points else 0
         
     return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation
         
 def print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation):
-    # Prints the output results to the console
+    
     """Prints the output results to the console.
 
     Args:
@@ -109,6 +112,7 @@ def print_output(utm_points, max_east, min_east, width, max_north, min_north, he
         min_elevation: Minimum elevation value.
         average_elevation: Average elevation value.
     """
+    
     print(f"There are {utm_points} UTM points.\n")
     print(f"The maximum easting is {max_east} meters east.\n")
     print(f"The minimum easting is {min_east} meters east.\n")
