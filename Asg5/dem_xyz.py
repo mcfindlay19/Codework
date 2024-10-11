@@ -17,7 +17,7 @@
 #    - Matt Findlay, matthew_findlay@ucalgary.ca
     
 # Version:
-#    1.0.0 - Initial creation of program. Opening a file and deteremine how many UTM points there are
+#    1.0.0 - Initial creation of program. Opening a file and determine how many UTM points there are
 #    1.1.0 - Added function definiton to gather important numbers from file
 #    1.1.1 - Documentation states that .xyz files should be int int float, but was instead formatted as float float float.
 #    1.2.0 - Added writing to an output file
@@ -32,14 +32,16 @@
 # ====================================================
 
 def gather_important_numbers(input_file):
-    # Initilize values to infinity or negative infinity
+    """Gathers important metadata from a .xyz file"""
+    # Initalize values to infinity or negative infinity
     max_east = float('-inf')
     min_east = float('inf')
     max_north = float('-inf')
     min_north = float('inf')
     max_elevation = float('-inf')
     min_elevation = float('inf')
-    # Initilize other important values
+    
+    # Initalize other important values
     total_elevation = 0
     utm_points = 0
     
@@ -57,7 +59,19 @@ def gather_important_numbers(input_file):
     
     return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, round(total_elevation/utm_points, 4)
         
-def print_output(utm_points):
+def print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation):
+    # Prints the output results to the console
+    """Prints the output results to the console"""
+    print(f"There are {utm_points} UTM points.\n")
+    print(f"The maximum easting is {max_east} meters east.\n")
+    print(f"The minimum easting is {min_east} meters east.\n")
+    print(f"The width of the area is {width} meters.\n")
+    print(f"The maximum northing is {max_north} meters north.\n")
+    print(f"The minimum northing is {min_north} meters north.\n")
+    print(f"The height of the area is {height} meters.\n")
+    print(f"The max elevation is {max_elevation} meters.\n")
+    print(f"The minimum elevation is {min_elevation} meters.\n")
+    print(f"The average elevation is {average_elevation} meters.\n")
     
     pass
 
@@ -65,31 +79,26 @@ file_name = input("Please input the name of the file you wish to open: ")
 text_name = file_name.split('.')[0] + '.txt'
 
 
-with open(file_name, 'r') as xyz_file:
-    utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation = gather_important_numbers(xyz_file)
+try:
     
-width = max_east - min_east
-height = max_north - min_north
+    with open(file_name, 'r') as xyz_file:
+        utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation = gather_important_numbers(xyz_file)
+        
+    width = max_east - min_east
+    height = max_north - min_north
 
-with open(text_name, 'w') as txt_file:
-    txt_file.write(f"There are {utm_points} UTM points.\n")
-    txt_file.write(f"The maximum easting is {max_east} meters east.\n")
-    txt_file.write(f"The minimum easting is {min_east} meteres east.\n")
-    txt_file.write(f"The width of the area is {width} meters.\n")
-    txt_file.write(f"The maximum northing is {max_north} meters north.\n")
-    txt_file.write(f"The minimum northing is {min_north} meters north.\n")
-    txt_file.write(f"The height of the area is {height} meters.\n")
-    txt_file.write(f"The max elevation is {max_elevation} meters.\n")
-    txt_file.write(f"The minimum elevation is {min_elevation} meters.\n")
-    txt_file.write(f"The average elevation is {average_elevation} meters.\n")
+    with open(text_name, 'w') as txt_file:
+        txt_file.write(f"There are {utm_points} UTM points.\n")
+        txt_file.write(f"The maximum easting is {max_east} meters east.\n")
+        txt_file.write(f"The minimum easting is {min_east} meters east.\n")
+        txt_file.write(f"The width of the area is {width} meters.\n")
+        txt_file.write(f"The maximum northing is {max_north} meters north.\n")
+        txt_file.write(f"The minimum northing is {min_north} meters north.\n")
+        txt_file.write(f"The height of the area is {height} meters.\n")
+        txt_file.write(f"The max elevation is {max_elevation} meters.\n")
+        txt_file.write(f"The minimum elevation is {min_elevation} meters.\n")
+        txt_file.write(f"The average elevation is {average_elevation} meters.\n")
 
-print(f"There are {utm_points} UTM points.\n")
-print(f"The maximum easting is {max_east} meters east.\n")
-print(f"The minimum easting is {min_east} meteres east.\n")
-print(f"The width of the area is {width} meters.\n")
-print(f"The maximum northing is {max_north} meters north.\n")
-print(f"The minimum northing is {min_north} meters north.\n")
-print(f"The height of the area is {height} meters.\n")
-print(f"The max elevation is {max_elevation} meters.\n")
-print(f"The minimum elevation is {min_elevation} meters.\n")
-print(f"The average elevation is {average_elevation} meters.\n")
+    print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation)
+except FileNotFoundError:
+    print(f"Error: The file '{file_name}' was not found.")
