@@ -19,6 +19,7 @@
 # Version:
 #    1.0.0 - Initial creation of program. Opening a file and deteremine how many UTM points there are
 #    1.1.0 - Added function definiton to gather important numbers from file
+#    1.1.0 - Documentation states that .xyz files should be int int float, but was instead formatted as float float float. 
     
 # Date:
 #    2004-10-10
@@ -36,24 +37,21 @@ def gather_important_numbers(input_file):
     max_elevation = 0
     min_elevation = 0
     total_elevation = 0
-    utm_points = sum(1 for line in input_file)
+    utm_points = 0
     
     
-    for line in input_file:
+    for line in input_file.readlines():
         list_line = line.split()
-        max_east = max(max_east, list_line[0])
-        min_east = min(min_east, list_line[0])
-        max_north = max(max_north, list_line[1])
-        min_north = min(min_north, list_line[1])
-        max_elevation = max(max_elevation, list_line[2])
-        min_elevation = min_elevation(min_elevation, list_line[2])
-        total_elevation += list_line[2]
+        max_east = max(max_east, float(list_line[0]))
+        min_east = min(min_east, float(list_line[0]))
+        max_north = max(max_north, float(list_line[1]))
+        min_north = min(min_north, float(list_line[1]))
+        max_elevation = max(max_elevation, float(list_line[2]))
+        min_elevation = min(min_elevation, float(list_line[2]))
+        total_elevation += float(list_line[2])
+        utm_points += 1
     
-    print(max_east)
-    print(utm_points)
-    
-    return
-    
+    return max_east, min_east, max_north, min_north, max_elevation, min_elevation, total_elevation/utm_points, utm_points
         
 
 file_name = input("Please input the name of the file you wish to open: ")
@@ -61,6 +59,7 @@ file_name = input("Please input the name of the file you wish to open: ")
 
 
 with open(file_name, 'r') as xyz_file:
-    gather_important_numbers(xyz_file)
+    max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation, utm_points = gather_important_numbers(xyz_file)
+    
     
     
