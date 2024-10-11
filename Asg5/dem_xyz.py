@@ -3,13 +3,13 @@
 # Project Name: dem_xyz
 # ====================================================
 # Description:
-#    This program will open a user speicified file DEM that has been saved in .xyz format. This will gather some metadata about the file and output it both to the user as well as to a file.
+#    This program will open a user specified file DEM that has been saved in .xyz format. This will gather some metadata about the file and output it both to the user as well as to a file.
 #    The metadata collected is the following:
 #        1) How many UTM points there are
 #        2) Minimum and Maximum easting values
 #        3) Minimum and Maximum northing values
 #        4) Approximate height of the tile
-#        5) Approximate width of the tall
+#        5) Approximate width of the tile
 #        6) Minimum and Maximum elevation
 #        7) Average elevation
 
@@ -29,22 +29,31 @@
 #    2004-10-10
         
 # Usage:
-#    Provide a short example of how to use the code or a basic command to run the project.
+#    Provide the name of the .xyz file to analyze. The file should contain three numeric values (easting, northing, elevation) per line.
     
 # ====================================================
 
 def gather_important_numbers(input_file):
-    """Gathers important metadata from a .xyz file"""
-    # Initalize values to infinity or negative infinity
+    """Gathers important metadata from a .xyz file.
+
+    Args:
+        input_file: An open file object containing .xyz formatted data.
+
+    Returns:
+        A tuple containing the number of UTM points, maximum and minimum easting, maximum and minimum northing,
+        maximum and minimum elevation, and the average elevation.
+    """
+    # Initialize values to infinity or negative infinity
     max_east = float('-inf')
     min_east = float('inf')
     max_north = float('-inf')
     min_north = float('inf')
     max_elevation = float('-inf')
     min_elevation = float('inf')
+
     
-    # Initalize other important values
-    total_elevation = 0
+    # Initialize other important values
+    elevation_sum = 0
     utm_points = 0
     
     # For every line inside the file, split the line into individual values
@@ -74,16 +83,32 @@ def gather_important_numbers(input_file):
         min_elevation = min(min_elevation, elevation)
         
         # Sum all elevation data to be able to calculate the average
-        total_elevation += elevation
+        elevation_sum += elevation
         
         #Keep track of how many points there are
         utm_points += 1
-    
-    return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, round(total_elevation/utm_points, 4)
+
+    # Calculate average elevation after the loop to avoid repeated calculation
+    average_elevation = round(elevation_sum / utm_points, 4) if utm_points > 0 else 0
+        
+    return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation
         
 def print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation):
     # Prints the output results to the console
-    """Prints the output results to the console"""
+    """Prints the output results to the console.
+
+    Args:
+        utm_points: Number of UTM points.
+        max_east: Maximum easting value.
+        min_east: Minimum easting value.
+        width: Width of the area.
+        max_north: Maximum northing value.
+        min_north: Minimum northing value.
+        height: Height of the area.
+        max_elevation: Maximum elevation value.
+        min_elevation: Minimum elevation value.
+        average_elevation: Average elevation value.
+    """
     print(f"There are {utm_points} UTM points.\n")
     print(f"The maximum easting is {max_east} meters east.\n")
     print(f"The minimum easting is {min_east} meters east.\n")
@@ -95,7 +120,7 @@ def print_output(utm_points, max_east, min_east, width, max_north, min_north, he
     print(f"The minimum elevation is {min_elevation} meters.\n")
     print(f"The average elevation is {average_elevation} meters.\n")
     
-    pass
+
 
 file_name = input("Please input the name of the file you wish to open: ")
 text_name = file_name.split('.')[0] + '.txt'
