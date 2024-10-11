@@ -125,19 +125,24 @@ def print_output(utm_points, max_east, min_east, width, max_north, min_north, he
     print(f"The average elevation is {average_elevation} meters.\n")
     
 
-
+# Get file name to work with
 file_name = input("Please input the name of the file you wish to open: ")
+
+# Delete the extension, and add the extension '.txt'
 text_name = file_name.split('.')[0] + '.txt'
 
-
+# Error checking to ensure file is available
 try:
     
+    # Get meta data from file
     with open(file_name, 'r') as xyz_file:
         utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation = gather_important_numbers(xyz_file)
-        
+    
+    # 2 calculations based on meta data    
     width = max_east - min_east
     height = max_north - min_north
 
+    # Print to a file
     with open(text_name, 'w') as txt_file:
         txt_file.write(f"There are {utm_points} UTM points.\n")
         txt_file.write(f"The maximum easting is {max_east} meters east.\n")
@@ -150,6 +155,9 @@ try:
         txt_file.write(f"The minimum elevation is {min_elevation} meters.\n")
         txt_file.write(f"The average elevation is {average_elevation} meters.\n")
 
+    # Print to the console
     print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation)
+    
+# Error message if file not found    
 except FileNotFoundError:
     print(f"Error: The file '{file_name}' was not found. Program is quitting.")

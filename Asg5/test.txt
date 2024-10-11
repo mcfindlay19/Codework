@@ -1,0 +1,10 @@
+There are 26 UTM points.
+The maximum easting is 444197.5 meters east.
+The minimum easting is 443837.5 meters east.
+The width of the area is 360.0 meters.
+The maximum northing is 5592722.5 meters north.
+The minimum northing is 5000000.0 meters north.
+The height of the area is 592722.5 meters.
+The max elevation is 753.2 meters.
+The minimum elevation is 752.18 meters.
+The average elevation is 752.4658 meters.
