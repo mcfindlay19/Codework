@@ -61,7 +61,7 @@ def print_output(utm_points):
 
 file_name = input("Please input the name of the file you wish to open: ")
 text_name = file_name.split('.')[0] + '.txt'
-print(text_name)
+
 
 with open(file_name, 'r') as xyz_file:
     utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, average_elevation = gather_important_numbers(xyz_file)
@@ -70,14 +70,13 @@ width = max_east - min_east
 height = max_north - min_north
 
 with open(text_name, 'w') as txt_file:
-    
-    txt_file.write(utm_points)
-    txt_file.write(max_east)
-    txt_file.write(min_east)
-    txt_file.write(width)
-    txt_file.write(max_north)
-    txt_file.write(min_north)
-    txt_file.write(height)
-    txt_file.write(max_elevation)
-    txt_file.write(min_elevation)
-    txt_file.write(average_elevation)
+    txt_file.write(f"There are {utm_points} UTM points\n")
+    txt_file.write(f"The maximum easting is {max_east} meters east\n")
+    txt_file.write(f"The minimum easting is {min_east} meteres east\n")
+    txt_file.write(f"The width of the area is {width} meters\n")
+    txt_file.write(f"The maximum northing is {max_north} meters north\n")
+    txt_file.write(f"The minimum northing is {min_north} meters north\n")
+    txt_file.write(f"The height of the area is {height} meters\n")
+    txt_file.write(f"The max elevation is {max_elevation} meters\n")
+    txt_file.write(f"The minimum elevation is {min_elevation} meters\n")
+    txt_file.write(f"The average elevation is {average_elevation} meters\n")
