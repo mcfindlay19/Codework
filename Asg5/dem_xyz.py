@@ -22,6 +22,8 @@
 #    1.1.1 - Documentation states that .xyz files should be int int float, but was instead formatted as float float float.
 #    1.2.0 - Added writing to an output file
 #    1.2.1 - Added writing output to the screen
+#    1.3.0 - Added try block for opening file. Added docstrings
+#    1.3.1 - Added more error handling, sepcifically for data inside file
     
 # Date:
 #    2004-10-10
@@ -45,16 +47,36 @@ def gather_important_numbers(input_file):
     total_elevation = 0
     utm_points = 0
     
-    
+    # For every line inside the file, split the line into individual values
     for line in input_file.readlines():
         list_line = line.split()
-        max_east = max(max_east, float(list_line[0]))
-        min_east = min(min_east, float(list_line[0]))
-        max_north = max(max_north, float(list_line[1]))
-        min_north = min(min_north, float(list_line[1]))
-        max_elevation = max(max_elevation, float(list_line[2]))
-        min_elevation = min(min_elevation, float(list_line[2]))
-        total_elevation += float(list_line[2])
+        
+        # Check to see if there are only 3 values per line
+        if len(list_line) != 3:
+            print(f"Warning: Invalid line format: {line.strip()}")
+            continue
+        
+        # Check to ensure all values are valid inputs i.e. no letters or special characters
+        try:
+            easting = float(list_line[0])
+            northing = float(list_line[1])
+            elevation = float(list_line[2])
+        except ValueError:
+            print(f"Warning: Invalid numeric values in line: {line.strip()}")
+            continue
+        
+        # See if the values are a new max or a new min
+        max_east = max(max_east, easting)
+        min_east = min(min_east, easting)
+        max_north = max(max_north, northing)
+        min_north = min(min_north, northing)
+        max_elevation = max(max_elevation, elevation)
+        min_elevation = min(min_elevation, elevation)
+        
+        # Sum all elevation data to be able to calculate the average
+        total_elevation += elevation
+        
+        #Keep track of how many points there are
         utm_points += 1
     
     return utm_points, max_east, min_east, max_north, min_north, max_elevation, min_elevation, round(total_elevation/utm_points, 4)
@@ -101,4 +123,4 @@ try:
 
     print_output(utm_points, max_east, min_east, width, max_north, min_north, height, max_elevation, min_elevation, average_elevation)
 except FileNotFoundError:
-    print(f"Error: The file '{file_name}' was not found.")
+    print(f"Error: The file '{file_name}' was not found. Program is quitting.")
