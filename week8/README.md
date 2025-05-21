@@ -1,12 +1,18 @@
-# GIS Geoprocessing Script
+# Geoprocessing Script
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-ArcGIS--Pro%20%7C%20arcpy-orange)
 
-## Overview
 
 This Python script automates the geoprocessing of GIS vector datasets in a given workspace. It ensures all datasets use the **NAD83 UTM Zone 12N** spatial reference system by checking, defining, or reprojecting datasets as needed. The script supports both shapefiles and geodatabase feature classes and summarizes projection statistics to help users standardize their spatial data.
+
+## Overview
+
+- **Author:** Matt Findlay  
+- **Date:** January 31, 2025  
+- **Latest Version:** 1.5  
+  
 
 ## Features
 
