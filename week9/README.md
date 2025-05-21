@@ -34,10 +34,10 @@ This script is intended to be run from a custom script tool in ArcGIS Pro.
 - Vector data in a geodatabase or shapefile format
 
 ### 2. Clone the repository
-```bash
-   git@github.com:mcfindlay19/Codework.git
+   ```bash
+   git clone https://github.com/mcfindlay19/Codework.git
    cd week9
-```
+   ```
 
 ### 3. Setup
 
