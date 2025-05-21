@@ -69,9 +69,9 @@ The average elevation is 888.9 meters.
 ## Author
 
 **Matt Findlay**  
-Email: matthew_findlay@ucalgary.ca
-
-       mcfindlay19@gmail.com
+Email: 
+- matthew_findlay@ucalgary.ca
+- mcfindlay19@gmail.com
 
 ## License
 
