@@ -1,5 +1,6 @@
 # DEM XYZ Metadata Extractor
 
+![License](https://img.shields.io/github/license/mcfindlay19/Codework?style=flat) ![Python](https://img.shields.io/badge/python-3.8+-blue?style=flat) ![Last Commit](https://img.shields.io/github/last-commit/mcfindlay19/Codework?style=flat) ![Repo Size](https://img.shields.io/github/repo-size/mcfindlay19/Codework?style=flat) ![Issues](https://img.shields.io/github/issues/mcfindlay19/Codework?style=flat)
 
 
 This Python script processes LiDAR15 ASCII-format Digital Elevation Model (DEM) files (in .xyz format) and extracts essential metadata about the terrain represented in the file. It is designed to support the lab assignment involving data from the Open Data Areas Alberta project.
