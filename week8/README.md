@@ -10,8 +10,9 @@ This Python script automates the geoprocessing of GIS vector datasets in a given
 ## Overview
 
 - **Author:** Matt Findlay
-- **E-mail:** - (matthew_findlay@ucalgary.ca)[mailto:matthew_findlay@ucalgary.ca]
-              - (mcfindlay19@gmail.com)[mailto:mcfindlay19@gmail.com]
+- **E-mail:**
+   - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
+   - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
 - **Date:** January 31, 2025  
 - **Latest Version:** 1.5  
   
