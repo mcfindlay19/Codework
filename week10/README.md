@@ -40,10 +40,10 @@ A custom ArcGIS Pro geoprocessing script tool for importing wildlife survey CSV 
   - Year, SurveyID, Presence, sLatitude, sLongitude
 
 ### How to Clone
-
-```bash
-git clone https://github.com/yourusername/wildlife-survey-import.git
-```
+   ```bash
+   git clone https://github.com/mcfindlay19/Codework.git
+   cd week10
+   ```
 
 ### Setup
 
