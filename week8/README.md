@@ -45,7 +45,7 @@ The diagram below outlines the logic of the script:
 
 2. **Clone the repository**:
    ```bash
-   git@github.com:mcfindlay19/Codework.git
+   git clone https://github.com/mcfindlay19/Codework.git
    cd week8
    ```
 
