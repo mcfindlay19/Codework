@@ -9,7 +9,9 @@ This Python script automates the geoprocessing of GIS vector datasets in a given
 
 ## Overview
 
-- **Author:** Matt Findlay  
+- **Author:** Matt Findlay
+- **E-mail:** - (matthew_findlay@ucalgary.ca)[mailto:matthew_findlay@ucalgary.ca]
+              - (mcfindlay19@gmail.com)[mailto:mcfindlay19@gmail.com]
 - **Date:** January 31, 2025  
 - **Latest Version:** 1.5  
   
@@ -72,10 +74,14 @@ Datasets without a defined spatial reference:
   parcels.shp
 ```
 
-## Author
+## Version History
+- **1.0** - Created base work flow
+- **1.1** - Tidied up code, making functions
+- **1.2** - fixed bug where i forgot to change name of reprojected items
+- **1.3** - Tidied up output
+- **1.4** - Added comments
+- **1.5** - Added logic for overwritting files instead of creating new ones
 
-**Matt Findlay**  
-Email: [mfindlay@ucalgary.ca](mailto:mfindlay@ucalgary.ca)
 
 ## License
 
