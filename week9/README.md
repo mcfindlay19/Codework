@@ -7,7 +7,10 @@ This ArcGIS Pro Python script tool batch-processes GIS vector datasets to ensure
 
 ## Overview
 
-- **Author:** Matt Findlay  
+- **Author:** Matt Findlay
+- **E-mail:**
+    - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
+    - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
 - **Date:** February 3, 2025  
 - **Latest Version:** 1.5  
 - **Script Tool Name:** `BatchVerifyProjections`   
