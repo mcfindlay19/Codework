@@ -1,0 +1,79 @@
+# DEM XYZ Metadata Extractor
+
+![License](https://img.shields.io/github/license/mcfindlay19/Codework)  
+![Python](https://img.shields.io/badge/python-3.8+-blue)  
+![Last Commit](https://img.shields.io/github/last-commit/mcfindlay19/Codework)  
+![Repo Size](https://img.shields.io/github/repo-size/mcfindlay19/Codework)  
+![Issues](https://img.shields.io/github/issues/mcfindlay19/Codework)
+
+This Python script processes LiDAR15 ASCII-format Digital Elevation Model (DEM) files (in .xyz format) and extracts essential metadata about the terrain represented in the file. It is designed to support the lab assignment involving data from the Open Data Areas Alberta project.
+
+## Project Overview
+
+LiDAR15 DEM files store elevation data as a series of UTM coordinates with corresponding elevation values. This tool reads such a file, calculates key statistics, and outputs the results to both the console and a .txt file.
+
+## Features
+
+- Prompts the user to input the name of a .xyz file.
+- Calculates the following metadata:
+  - Total number of UTM points
+  - Minimum and maximum **easting** values
+  - Minimum and maximum **northing** values
+  - Approximate **width** and **height** of the tile (in meters)
+  - Minimum, maximum, and average **elevation**
+- Prints the results in a user-friendly format.
+- Bonus feature: Outputs results to a .txt file with the same base name as the input file.
+
+## File Format
+
+Each line of the .xyz input file must contain three floating-point values separated by whitespace, in the following format:
+
+<easting> <northing> <elevation>
+
+Where:
+- Easting: UTM easting in meters
+- Northing: UTM northing in meters
+- Elevation: Height in meters above sea level
+
+## Usage
+
+1. Run the script using Python 3:
+   python dem_xyz.py
+
+2. When prompted, enter the name of a .xyz file (for example: 414019_A.xyz).
+
+3. The script will output the results to:
+   - The console
+   - A new text file named 414019_A.txt (if the input was 414019_A.xyz)
+
+## Example Output
+
+Please input the name of the file you wish to open: 414019_A.xyz
+
+There are 987654 UTM points.
+
+The maximum easting is 612345.0 meters east.  
+The minimum easting is 602345.0 meters east.  
+The width of the area is 10000.0 meters.
+
+The maximum northing is 5654321.0 meters north.  
+The minimum northing is 5644321.0 meters north.  
+The height of the area is 10000.0 meters.
+
+The max elevation is 934.5 meters.  
+The minimum elevation is 843.2 meters.  
+The average elevation is 888.9 meters.
+
+## Requirements
+
+- Python 3.x
+- No external libraries required
+
+## Author
+
+**Matt Findlay**  
+Email: matthew_findlay@ucalgary.ca
+
+## License
+
+This script was developed for academic purposes in association with the University of Calgary. Please refer to the Open Data Areas Alberta license at http://opendataareas.ca for data usage terms.
