@@ -32,8 +32,8 @@ This script is intended to be run from a custom script tool in ArcGIS Pro.
 
 ### 2. Clone the repository
 ```bash
-   git clone https://github.com/yourusername/BatchVerifyProjections.git
-   cd BatchVerifyProjections
+   git@github.com:mcfindlay19/Codework.git
+   cd week9
 ```
 
 ### 3. Setup
