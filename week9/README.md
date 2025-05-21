@@ -1,16 +1,18 @@
 # Batch Verify Projections
+![License](https://img.shields.io/badge/license-MIT-green)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![Platform](https://img.shields.io/badge/platform-ArcGIS--Pro%20%7C%20arcpy-orange)
 
 This ArcGIS Pro Python script tool batch-processes GIS vector datasets to ensure they have valid spatial references. It defines missing projections and reprojects all datasets to a specified coordinate system (default is NAD83 UTM Zone 12N). The tool provides progress updates and handles common errors gracefully.
 
-## 🔍 Overview
+## Overview
 
 - **Author:** Matt Findlay  
 - **Date:** February 3, 2025  
 - **Latest Version:** 1.5  
-- **Script Tool Name:** `BatchVerifyProjections`  
-- **Toolbox:** Custom Toolbox (`<Lastname>_Lab9.atbx`)  
+- **Script Tool Name:** `BatchVerifyProjections`   
 
-## 🧭 Features
+## Features
 
 - Validates projections for all vector datasets in a workspace.
 - Defines undefined projections using user-specified spatial reference.
@@ -19,20 +21,31 @@ This ArcGIS Pro Python script tool batch-processes GIS vector datasets to ensure
 - Integrates a step progressor for execution feedback.
 - Includes robust error handling per dataset and globally.
 
-## 🛠️ How to Use
+## Installation
 
 This script is intended to be run from a custom script tool in ArcGIS Pro.
 
-### 1. Setup
+### 1. Requirements
 
-1. Create a custom toolbox (`*.atbx`) in ArcGIS Pro (e.g., `Findlay_Lab9.atbx`).
+- ArcGIS Pro with Python and `arcpy`
+- Vector data in a geodatabase or shapefile format
+
+### 2. Clone the repository
+```bash
+   git clone https://github.com/yourusername/BatchVerifyProjections.git
+   cd BatchVerifyProjections
+```
+
+### 3. Setup
+
+1. Create a custom toolbox (`*.atbx`) in ArcGIS Pro (e.g., `BatchVerifyProjections.atbx`).
 2. Right-click the toolbox → **Add > Script**, and configure it:
    - **Name:** `BatchVerifyProjections`
    - **Label:** `Batch Verify Projections`
    - **Script File:** Point to this script (`BatchVerifyProjections.py`)
-   - **Use relative paths:** ✅ Enabled
+   - **Use relative paths:**  Enabled
 
-### 2. Configure Parameters
+### 4. Configure Parameters
 
 In the Script Tool's **Properties**, define two parameters:
 
@@ -41,14 +54,14 @@ In the Script Tool's **Properties**, define two parameters:
 | 1 | Input Workspace or Feature Dataset | Workspace or Feature Dataset | Input     |
 | 2 | Spatial Reference System            | Spatial Reference         | Input     |
 
-### 3. Run the Tool
+### 5. Run the Tool
 
 1. Open the script tool in ArcGIS Pro.
 2. Select a folder or feature dataset containing shapefiles or feature classes.
 3. Choose a spatial reference to apply to undefined datasets.
 4. Click **Run**.
 
-### 4. Output
+### 6. Output
 
 - Reprojected datasets are renamed and replace the originals.
 - Summary messages include:
@@ -56,7 +69,7 @@ In the Script Tool's **Properties**, define two parameters:
   - Geometry type counts
   - Count of datasets reprojected, unchanged, or assigned a spatial reference
 
-## 📁 File Structure
+## File Structure
 
 ```
 BatchVerifyProjections/
@@ -65,18 +78,14 @@ BatchVerifyProjections/
 └── README.md                    # You're here
 ```
 
-## ⚙️ Requirements
 
-- ArcGIS Pro with Python and `arcpy`
-- Vector data in a geodatabase or shapefile format
-
-## ⚠️ Error Handling
+## Error Handling
 
 - Warnings for missing datasets or unknown spatial references.
 - Errors are logged per dataset and summarized.
 - Global error catch ensures graceful script termination.
 
-## 📜 Version History
+## Version History
 
 - **1.0** – Initial working version
 - **1.1** – Converted input to `arcpy.GetParameterAsText`
@@ -85,6 +94,6 @@ BatchVerifyProjections/
 - **1.4** – Handled case with no vector datasets
 - **1.5** – Global script error handling
 
-## 🧾 License
+## License
 
-This project is part of a lab assignment and is intended for educational use.
+This project is licensed under the MIT License.
