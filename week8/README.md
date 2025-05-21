@@ -42,8 +42,8 @@ The diagram below outlines the logic of the script:
 
 2. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/gis-geoprocessing-script.git
-   cd gis-geoprocessing-script
+   git@github.com:mcfindlay19/Codework.git
+   cd week8
    ```
 
 3. **Run the script**:
