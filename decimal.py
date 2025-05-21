@@ -52,6 +52,7 @@ def dms_to_decimal(dms_values):
     decimal = abs(degrees) + abs(minutes) / 60 + abs(seconds) / 3600
     return sgn * decimal
 
+
 # Set up initial GUI window
 root = tk.Tk()
 root.title("Convert DMS to Decimal Degrees")
