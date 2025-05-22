@@ -6,10 +6,12 @@
 
 ## Overview
 
-**Author:** Matt Findlay  
-**E-mail:** mfindlayucalgary.ca  
-**Date of version:** Feb 4, 2025  
-**Latest version:** 1.0  
+- **Author:** Matt Findlay  
+- **E-mail:** 
+ - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
+ - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
+- **Date of version:** Feb 4, 2025  
+- **Latest version:** 1.0  
 
 This script calculates the Topographic Roughness Index (TRI) for a given DEM using map algebra and focal statistics. It is designed to run within the ArcGIS Pro Python environment and outputs the TRI raster in a designated output folder.
 
@@ -32,8 +34,9 @@ This script calculates the Topographic Roughness Index (TRI) for a given DEM usi
 ### How to Clone
 
 ```bash
-git clone https://github.com/yourusername/tri-computation-tool.git
-```
+   git clone https://github.com/mcfindlay19/Codework.git
+   cd week11
+   ```
 
 ### Setup
 
