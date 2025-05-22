@@ -8,8 +8,8 @@
 
 - **Author:** Matt Findlay  
 - **E-mail:** 
- - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
- - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
+  - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
+  - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
 - **Date of version:** Feb 4, 2025  
 - **Latest version:** 1.0  
 
