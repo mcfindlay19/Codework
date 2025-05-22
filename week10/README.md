@@ -12,8 +12,8 @@ A custom ArcGIS Pro geoprocessing script tool for importing wildlife survey CSV 
 
 - **Author:** Matt Findlay  
 - **E-mail:** 
- - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
- - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
+  - [matthew_findlay@ucalgary.ca](mailto:matthew_findlay@ucalgary.ca)
+  - [mcfindlay19@gmail.com](mailto:mcfindlay19@gmail.com)
 - **Date of Version:** February 3, 2025  
 - **Latest Version:** v1.4  
 
