@@ -37,7 +37,7 @@ A collection of GIS, geoprocessing, and environmental analysis tools developed i
 
 - Python 3.9+
 - ArcGIS Pro with `arcpy`
-- `pandas`, `os`, `datetime`, `logging`, `argparse`
+- `csv`, `os`
 
 ### How to Clone
 
