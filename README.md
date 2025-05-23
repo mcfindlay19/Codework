@@ -54,16 +54,6 @@ Ensure ArcGIS Pro is installed and that Python environment has access to `arcpy`
 
 Each tool uses either command-line arguments or configurable variables in the script header.
 
-### Run the Tool
-
-- **Projection Checker:**  
-  `python check_projections.py -w path/to/workspace`
-
-- **Wildlife Survey Script:**  
-  `python wildlife_cleaner.py`
-
-- **DEM Metadata Extractor:**  
-  `python dem_metadata_parser.py -f path/to/dem/file`
 
 ### Output
 
@@ -75,30 +65,55 @@ Each tool generates output reports (e.g., CSV summaries), projection logs, or co
 
 ```
 Codework/
+├── decimal.py
 │
-├── projection_checker/
-│   └── check_projections.py
+├── week10/
+│   ├── FlowChart.png
+│   ├── instructions.md
+│   ├── README.md
+│   ├── Routes.csv
+│   └── wildlife.py
 │
-├── wildlife_survey/
-│   └── wildlife_cleaner.py
+├── week11/
+│   ├── instructions.md
+│   ├── READNE.md
+│   └── tru.py
 │
-├── dem_tools/
-│   ├── dem_metadata_parser.py
-│   └── example_dem.xyz
+├── week5/
+│   ├── 413018_A.txt
+│   ├── 413018_A.xyz
+│   ├── badtest.txt
+│   ├── badtest.xyz
+│   ├── dem_xyz.py
+│   ├── instructions.md
+│   ├── README.md
+│   ├── Taber_LiDAR15_DEM/
+│       ├── 413018_A.xyz
+│       ├── 413019_A.xyz
+│       ├── 414018_A.xyz
+│       ├── 414019_A.xyz
+│       ├── LiDAR15_DEM_Disclaimer.pdf
+│       └── LiDAR15_DEM_Information.pdf
+│   ├── test.txt
+│   └── test.xyz
 │
-├── README.md
-└── LICENSE
+├── week8/
+│   ├── FlowChart.png
+│   ├── geoprocess.py
+│   ├── instructions.md
+│   └── README.md
+│
+├── week9/
+│   ├── BatchVerifyProjections.py
+│   ├── geoprocess.py
+│   ├── instructions.md
+│   └── README.md
+└── README.md
+
 ```
 
 ---
 
-## Error Handling
-
-- Missing projections handled with warning and log output
-- File parsing failures reported in a structured error log
-- XYZ and DEM validators check header format and grid regularity
-
----
 
 ## Version History
 
@@ -109,7 +124,7 @@ Codework/
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License.
 
 ---
 
